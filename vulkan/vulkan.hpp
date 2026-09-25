@@ -39,7 +39,7 @@
 #  endif
 #endif
 
-VULKAN_HPP_STATIC_ASSERT( VK_HEADER_VERSION == 361, "Wrong VK_HEADER_VERSION!" );
+VULKAN_HPP_STATIC_ASSERT( VK_HEADER_VERSION == 364, "Wrong VK_HEADER_VERSION!" );
 
 VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 {
@@ -11502,6 +11502,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   VULKAN_HPP_CONSTEXPR_INLINE auto NVComputeOccupancyPrioritySpecVersion   = VK_NV_COMPUTE_OCCUPANCY_PRIORITY_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto NVComputeOccupancyPriorityExtensionName = VK_NV_COMPUTE_OCCUPANCY_PRIORITY_EXTENSION_NAME;
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRPipelineLibraryGroupHandlesSpecVersion   = VK_KHR_PIPELINE_LIBRARY_GROUP_HANDLES_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRPipelineLibraryGroupHandlesExtensionName = VK_KHR_PIPELINE_LIBRARY_GROUP_HANDLES_EXTENSION_NAME;
+
   //=== VK_KHR_maintenance11 ===
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance11SpecVersion   = VK_KHR_MAINTENANCE_11_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance11ExtensionName = VK_KHR_MAINTENANCE_11_EXTENSION_NAME;
@@ -11556,6 +11560,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   VULKAN_HPP_CONSTEXPR_INLINE auto NVPrivateDataBaseHandleSpecVersion   = VK_NV_PRIVATE_DATA_BASE_HANDLE_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto NVPrivateDataBaseHandleExtensionName = VK_NV_PRIVATE_DATA_BASE_HANDLE_EXTENSION_NAME;
 
+  //=== VK_INTEL_device_info ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto INTELDeviceInfoSpecVersion   = VK_INTEL_DEVICE_INFO_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto INTELDeviceInfoExtensionName = VK_INTEL_DEVICE_INFO_EXTENSION_NAME;
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto VALVEBufferDeviceAddressAllocationAlignmentSpecVersion = VK_VALVE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto VALVEBufferDeviceAddressAllocationAlignmentExtensionName =
+    VK_VALVE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_EXTENSION_NAME;
+
 #if 20 <= VULKAN_HPP_CPP_VERSION
   template <typename Allocator, typename T>
   concept IsAllocator = requires( Allocator allocator, std::size_t n ) {
@@ -11591,6 +11604,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<ShaderModuleCreateInfo, DataGraphPipelineCreateInfoARM>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<ComputePipelineCreateInfo, PipelineCreateInfoKHR>
   {
     enum
     {
@@ -11654,6 +11676,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<PipelineLayoutCreateInfo, IndirectCommandsLayoutCreateInfoEXT>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<GraphicsPipelineCreateInfo, PipelineCreateInfoKHR>
   {
     enum
     {
@@ -14827,6 +14858,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   template <>
+  struct StructExtends<ExecutionGraphPipelineCreateInfoAMDX, PipelineCreateInfoKHR>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
   struct StructExtends<PipelineShaderStageNodeCreateInfoAMDX, PipelineShaderStageCreateInfo>
   {
     enum
@@ -15114,6 +15154,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   //=== VK_KHR_ray_tracing_pipeline ===
+  template <>
+  struct StructExtends<RayTracingPipelineCreateInfoKHR, PipelineCreateInfoKHR>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   template <>
   struct StructExtends<PhysicalDeviceRayTracingPipelineFeaturesKHR, PhysicalDeviceFeatures2>
   {
@@ -20155,25 +20204,6 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
-  //=== VK_EXT_pipeline_library_group_handles ===
-  template <>
-  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT, PhysicalDeviceFeatures2>
-  {
-    enum
-    {
-      value = true
-    };
-  };
-
-  template <>
-  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT, DeviceCreateInfo>
-  {
-    enum
-    {
-      value = true
-    };
-  };
-
   //=== VK_EXT_dynamic_rendering_unused_attachments ===
   template <>
   struct StructExtends<PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT, PhysicalDeviceFeatures2>
@@ -21695,7 +21725,16 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   template <>
-  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryRangeBarriersInfoKHR>
+  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryBarrier2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryRangeBarrierKHR>
   {
     enum
     {
@@ -22793,6 +22832,25 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  template <>
+  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   //=== VK_KHR_maintenance11 ===
   template <>
   struct StructExtends<PhysicalDeviceMaintenance11FeaturesKHR, PhysicalDeviceFeatures2>
@@ -23212,6 +23270,62 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<PhysicalDevicePrivateDataBaseHandleFeaturesNV, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_INTEL_device_info ===
+  template <>
+  struct StructExtends<PhysicalDeviceInfoPropertiesINTEL, PhysicalDeviceProperties2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE, PhysicalDeviceProperties2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<BufferDeviceAddressAlignmentAllocateInfoVALVE, BufferCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<BufferDeviceAddressAlignmentAllocateInfoVALVE, MemoryAllocateInfo>
   {
     enum
     {

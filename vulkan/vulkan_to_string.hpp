@@ -5923,7 +5923,6 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       case StructureType::eLayerSettingsCreateInfoEXT                                  : return "LayerSettingsCreateInfoEXT";
       case StructureType::ePhysicalDeviceShaderCoreBuiltinsFeaturesARM                 : return "PhysicalDeviceShaderCoreBuiltinsFeaturesARM";
       case StructureType::ePhysicalDeviceShaderCoreBuiltinsPropertiesARM               : return "PhysicalDeviceShaderCoreBuiltinsPropertiesARM";
-      case StructureType::ePhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT        : return "PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT";
       case StructureType::ePhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT  : return "PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT";
       case StructureType::ePhysicalDeviceInternallySynchronizedQueuesFeaturesKHR       : return "PhysicalDeviceInternallySynchronizedQueuesFeaturesKHR";
       case StructureType::eLatencySleepModeInfoNV                                      : return "LatencySleepModeInfoNV";
@@ -6182,6 +6181,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       case StructureType::ePhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT: return "PhysicalDeviceShaderUniformBufferUnsizedArrayFeaturesEXT";
       case StructureType::eComputeOccupancyPriorityParametersNV                    : return "ComputeOccupancyPriorityParametersNV";
       case StructureType::ePhysicalDeviceComputeOccupancyPriorityFeaturesNV        : return "PhysicalDeviceComputeOccupancyPriorityFeaturesNV";
+      case StructureType::ePhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR    : return "PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR";
       case StructureType::ePhysicalDeviceMaintenance11FeaturesKHR                  : return "PhysicalDeviceMaintenance11FeaturesKHR";
       case StructureType::eQueueFamilyOptimalImageTransferGranularityPropertiesKHR : return "QueueFamilyOptimalImageTransferGranularityPropertiesKHR";
       case StructureType::ePhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT  : return "PhysicalDeviceCooperativeMatrixMaintenance1FeaturesEXT";
@@ -6198,6 +6198,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       case StructureType::ePhysicalDeviceExtendedFlagsFeaturesKHR               : return "PhysicalDeviceExtendedFlagsFeaturesKHR";
       case StructureType::eImageStencilUsage2CreateInfoKHR                      : return "ImageStencilUsage2CreateInfoKHR";
       case StructureType::eSharedPresentSurfaceCapabilities2KHR                 : return "SharedPresentSurfaceCapabilities2KHR";
+      case StructureType::ePhysicalDeviceCooperativeMatrixLayoutsFeaturesARM    : return "PhysicalDeviceCooperativeMatrixLayoutsFeaturesARM";
       case StructureType::ePhysicalDeviceShaderOcpMicroscalingTypesFeaturesEXT  : return "PhysicalDeviceShaderOcpMicroscalingTypesFeaturesEXT";
       case StructureType::ePhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE: return "PhysicalDeviceShaderMixedFloatDotProductFeaturesVALVE";
       case StructureType::ePhysicalDeviceThrottleHintFeaturesSEC                : return "PhysicalDeviceThrottleHintFeaturesSEC";
@@ -6211,7 +6212,13 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       case StructureType::eImageTilingControlCreateInfoEXT                      : return "ImageTilingControlCreateInfoEXT";
       case StructureType::ePhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV: return "PhysicalDeviceCooperativeMatrixDecodeVectorFeaturesNV";
       case StructureType::ePhysicalDevicePrivateDataBaseHandleFeaturesNV        : return "PhysicalDevicePrivateDataBaseHandleFeaturesNV";
-      default                                                                   : return "invalid ( " + toHexString( static_cast<uint32_t>( value ) ) + " )";
+      case StructureType::ePhysicalDeviceInfoPropertiesINTEL                    : return "PhysicalDeviceInfoPropertiesINTEL";
+      case StructureType::ePhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE:
+        return "PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE";
+      case StructureType::ePhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE:
+        return "PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE";
+      case StructureType::eBufferDeviceAddressAlignmentAllocateInfoVALVE: return "BufferDeviceAddressAlignmentAllocateInfoVALVE";
+      default                                                           : return "invalid ( " + toHexString( static_cast<uint32_t>( value ) ) + " )";
     }
   }
 

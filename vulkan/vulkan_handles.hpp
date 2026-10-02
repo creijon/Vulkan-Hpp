@@ -1961,9 +1961,6 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct PhysicalDeviceShaderCoreBuiltinsFeaturesARM;
   struct PhysicalDeviceShaderCoreBuiltinsPropertiesARM;
 
-  //=== VK_EXT_pipeline_library_group_handles ===
-  struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
-
   //=== VK_EXT_dynamic_rendering_unused_attachments ===
   struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
 
@@ -2439,6 +2436,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct ComputeOccupancyPriorityParametersNV;
   struct PhysicalDeviceComputeOccupancyPriorityFeaturesNV;
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
+  using PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT = PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
+
   //=== VK_KHR_maintenance11 ===
   struct PhysicalDeviceMaintenance11FeaturesKHR;
   struct QueueFamilyOptimalImageTransferGranularityPropertiesKHR;
@@ -2464,6 +2465,9 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct PhysicalDeviceExtendedFlagsFeaturesKHR;
   struct ImageStencilUsage2CreateInfoKHR;
   struct SharedPresentSurfaceCapabilities2KHR;
+
+  //=== VK_ARM_cooperative_matrix_layouts ===
+  struct PhysicalDeviceCooperativeMatrixLayoutsFeaturesARM;
 
   //=== VK_EXT_shader_ocp_microscaling_types ===
   struct PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT;
@@ -2492,6 +2496,14 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   //=== VK_NV_private_data_base_handle ===
   struct PhysicalDevicePrivateDataBaseHandleFeaturesNV;
+
+  //=== VK_INTEL_device_info ===
+  struct PhysicalDeviceInfoPropertiesINTEL;
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE;
+  struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE;
+  struct BufferDeviceAddressAlignmentAllocateInfoVALVE;
 
   //===================================
   //=== HANDLE forward declarations ===

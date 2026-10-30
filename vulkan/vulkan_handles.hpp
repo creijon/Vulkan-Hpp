@@ -1961,9 +1961,6 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct PhysicalDeviceShaderCoreBuiltinsFeaturesARM;
   struct PhysicalDeviceShaderCoreBuiltinsPropertiesARM;
 
-  //=== VK_EXT_pipeline_library_group_handles ===
-  struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT;
-
   //=== VK_EXT_dynamic_rendering_unused_attachments ===
   struct PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT;
 
@@ -2439,6 +2436,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct ComputeOccupancyPriorityParametersNV;
   struct PhysicalDeviceComputeOccupancyPriorityFeaturesNV;
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  struct PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
+  using PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT = PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR;
+
   //=== VK_KHR_maintenance11 ===
   struct PhysicalDeviceMaintenance11FeaturesKHR;
   struct QueueFamilyOptimalImageTransferGranularityPropertiesKHR;
@@ -2465,6 +2466,9 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   struct ImageStencilUsage2CreateInfoKHR;
   struct SharedPresentSurfaceCapabilities2KHR;
 
+  //=== VK_ARM_cooperative_matrix_layouts ===
+  struct PhysicalDeviceCooperativeMatrixLayoutsFeaturesARM;
+
   //=== VK_EXT_shader_ocp_microscaling_types ===
   struct PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT;
 
@@ -2483,6 +2487,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   //=== VK_EXT_primitive_restart_index ===
   struct PhysicalDevicePrimitiveRestartIndexFeaturesEXT;
 
+  //=== VK_KHR_maintenance12 ===
+  struct PhysicalDeviceMaintenance12FeaturesKHR;
+  struct PhysicalDeviceMaintenance12PropertiesKHR;
+
   //=== VK_EXT_image_tiling_control ===
   struct PhysicalDeviceImageTilingControlFeaturesEXT;
   struct ImageTilingControlCreateInfoEXT;
@@ -2492,6 +2500,19 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   //=== VK_NV_private_data_base_handle ===
   struct PhysicalDevicePrivateDataBaseHandleFeaturesNV;
+
+  //=== VK_INTEL_device_info ===
+  struct PhysicalDeviceInfoPropertiesINTEL;
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE;
+  struct PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE;
+  struct BufferDeviceAddressAlignmentAllocateInfoVALVE;
+
+  //=== VK_GOOGLE_hdr_smpte_st_209450_metadata ===
+  struct PhysicalDeviceHdrSmpteSt209450FeaturesGOOGLE;
+  struct HdrSmpteSt209450GOOGLE;
+  struct SurfaceCapabilitiesHdrSmpteSt209450GOOGLE;
 
   //===================================
   //=== HANDLE forward declarations ===

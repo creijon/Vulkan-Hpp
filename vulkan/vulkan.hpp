@@ -39,7 +39,7 @@
 #  endif
 #endif
 
-VULKAN_HPP_STATIC_ASSERT( VK_HEADER_VERSION == 361, "Wrong VK_HEADER_VERSION!" );
+VULKAN_HPP_STATIC_ASSERT( VK_HEADER_VERSION == 368, "Wrong VK_HEADER_VERSION!" );
 
 VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 {
@@ -1708,6 +1708,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     DECLARE_IS_DISPATCHED( vkGetCalibratedTimestampsKHR )
     DECLARE_IS_DISPATCHED( vkGetCalibratedTimestampsEXT )
     DECLARE_IS_DISPATCHED( vkGetClusterAccelerationStructureBuildSizesNV )
+    DECLARE_IS_DISPATCHED( vkGetCommandBufferInternalHandleNV )
     DECLARE_IS_DISPATCHED( vkGetCommandPoolMemoryConsumption )
     DECLARE_IS_DISPATCHED( vkGetCudaModuleCacheNV )
     DECLARE_IS_DISPATCHED( vkGetDataGraphPipelineAvailablePropertiesARM )
@@ -1741,6 +1742,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     DECLARE_IS_DISPATCHED( vkGetDeviceImageSparseMemoryRequirementsKHR )
     DECLARE_IS_DISPATCHED( vkGetDeviceImageSubresourceLayout )
     DECLARE_IS_DISPATCHED( vkGetDeviceImageSubresourceLayoutKHR )
+    DECLARE_IS_DISPATCHED( vkGetDeviceInternalHandleNV )
     DECLARE_IS_DISPATCHED( vkGetDeviceMemoryCommitment )
     DECLARE_IS_DISPATCHED( vkGetDeviceMemoryOpaqueCaptureAddress )
     DECLARE_IS_DISPATCHED( vkGetDeviceMemoryOpaqueCaptureAddressKHR )
@@ -1846,6 +1848,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceImageFormatProperties )
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceImageFormatProperties2 )
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceImageFormatProperties2KHR )
+    DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceInternalHandleNV )
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceMemoryProperties )
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceMemoryProperties2 )
     DECLARE_IS_DISPATCHED( vkGetPhysicalDeviceMemoryProperties2KHR )
@@ -1903,6 +1906,7 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     DECLARE_IS_DISPATCHED( vkGetQueryPoolResults )
     DECLARE_IS_DISPATCHED( vkGetQueueCheckpointData2NV )
     DECLARE_IS_DISPATCHED( vkGetQueueCheckpointDataNV )
+    DECLARE_IS_DISPATCHED( vkGetQueueInternalHandleNV )
     DECLARE_IS_DISPATCHED( vkGetRandROutputDisplayEXT )
     DECLARE_IS_DISPATCHED( vkGetRayTracingCaptureReplayShaderGroupHandlesKHR )
     DECLARE_IS_DISPATCHED( vkGetRayTracingShaderGroupHandlesKHR )
@@ -8334,6 +8338,28 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       }
 #    endif /*VK_USE_PLATFORM_UBM_SEC*/
 
+      //=== VK_NV_internal_handle ===
+
+      VULKAN_HPP_INLINE void vkGetPhysicalDeviceInternalHandleNV( VkPhysicalDevice physicalDevice, VkInternalHandleNV * pHandle ) const VULKAN_HPP_NOEXCEPT
+      {
+        return ::vkGetPhysicalDeviceInternalHandleNV( physicalDevice, pHandle );
+      }
+
+      VULKAN_HPP_INLINE void vkGetDeviceInternalHandleNV( VkDevice device, VkInternalHandleNV * pHandle ) const VULKAN_HPP_NOEXCEPT
+      {
+        return ::vkGetDeviceInternalHandleNV( device, pHandle );
+      }
+
+      VULKAN_HPP_INLINE void vkGetQueueInternalHandleNV( VkQueue queue, VkInternalHandleNV * pHandle ) const VULKAN_HPP_NOEXCEPT
+      {
+        return ::vkGetQueueInternalHandleNV( queue, pHandle );
+      }
+
+      VULKAN_HPP_INLINE void vkGetCommandBufferInternalHandleNV( VkCommandBuffer commandBuffer, VkInternalHandleNV * pHandle ) const VULKAN_HPP_NOEXCEPT
+      {
+        return ::vkGetCommandBufferInternalHandleNV( commandBuffer, pHandle );
+      }
+
       //=== VK_EXT_primitive_restart_index ===
 
       VULKAN_HPP_INLINE void vkCmdSetPrimitiveRestartIndexEXT( VkCommandBuffer commandBuffer, uint32_t primitiveRestartIndex ) const VULKAN_HPP_NOEXCEPT
@@ -11502,6 +11528,10 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   VULKAN_HPP_CONSTEXPR_INLINE auto NVComputeOccupancyPrioritySpecVersion   = VK_NV_COMPUTE_OCCUPANCY_PRIORITY_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto NVComputeOccupancyPriorityExtensionName = VK_NV_COMPUTE_OCCUPANCY_PRIORITY_EXTENSION_NAME;
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRPipelineLibraryGroupHandlesSpecVersion   = VK_KHR_PIPELINE_LIBRARY_GROUP_HANDLES_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRPipelineLibraryGroupHandlesExtensionName = VK_KHR_PIPELINE_LIBRARY_GROUP_HANDLES_EXTENSION_NAME;
+
   //=== VK_KHR_maintenance11 ===
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance11SpecVersion   = VK_KHR_MAINTENANCE_11_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance11ExtensionName = VK_KHR_MAINTENANCE_11_EXTENSION_NAME;
@@ -11520,9 +11550,17 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   VULKAN_HPP_CONSTEXPR_INLINE auto SECUbmSurfaceExtensionName = VK_SEC_UBM_SURFACE_EXTENSION_NAME;
 #endif /*VK_USE_PLATFORM_UBM_SEC*/
 
+  //=== VK_NV_internal_handle ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto NVInternalHandleSpecVersion   = VK_NV_INTERNAL_HANDLE_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto NVInternalHandleExtensionName = VK_NV_INTERNAL_HANDLE_EXTENSION_NAME;
+
   //=== VK_KHR_extended_flags ===
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRExtendedFlagsSpecVersion   = VK_KHR_EXTENDED_FLAGS_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto KHRExtendedFlagsExtensionName = VK_KHR_EXTENDED_FLAGS_EXTENSION_NAME;
+
+  //=== VK_ARM_cooperative_matrix_layouts ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto ARMCooperativeMatrixLayoutsSpecVersion   = VK_ARM_COOPERATIVE_MATRIX_LAYOUTS_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto ARMCooperativeMatrixLayoutsExtensionName = VK_ARM_COOPERATIVE_MATRIX_LAYOUTS_EXTENSION_NAME;
 
   //=== VK_EXT_shader_ocp_microscaling_types ===
   VULKAN_HPP_CONSTEXPR_INLINE auto EXTShaderOcpMicroscalingTypesSpecVersion   = VK_EXT_SHADER_OCP_MICROSCALING_TYPES_SPEC_VERSION;
@@ -11544,6 +11582,14 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   VULKAN_HPP_CONSTEXPR_INLINE auto EXTPrimitiveRestartIndexSpecVersion   = VK_EXT_PRIMITIVE_RESTART_INDEX_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto EXTPrimitiveRestartIndexExtensionName = VK_EXT_PRIMITIVE_RESTART_INDEX_EXTENSION_NAME;
 
+  //=== VK_EXT_vertex_address_binding_unrestricted ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto EXTVertexAddressBindingUnrestrictedSpecVersion   = VK_EXT_VERTEX_ADDRESS_BINDING_UNRESTRICTED_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto EXTVertexAddressBindingUnrestrictedExtensionName = VK_EXT_VERTEX_ADDRESS_BINDING_UNRESTRICTED_EXTENSION_NAME;
+
+  //=== VK_KHR_maintenance12 ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance12SpecVersion   = VK_KHR_MAINTENANCE_12_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto KHRMaintenance12ExtensionName = VK_KHR_MAINTENANCE_12_EXTENSION_NAME;
+
   //=== VK_EXT_image_tiling_control ===
   VULKAN_HPP_CONSTEXPR_INLINE auto EXTImageTilingControlSpecVersion   = VK_EXT_IMAGE_TILING_CONTROL_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto EXTImageTilingControlExtensionName = VK_EXT_IMAGE_TILING_CONTROL_EXTENSION_NAME;
@@ -11555,6 +11601,19 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   //=== VK_NV_private_data_base_handle ===
   VULKAN_HPP_CONSTEXPR_INLINE auto NVPrivateDataBaseHandleSpecVersion   = VK_NV_PRIVATE_DATA_BASE_HANDLE_SPEC_VERSION;
   VULKAN_HPP_CONSTEXPR_INLINE auto NVPrivateDataBaseHandleExtensionName = VK_NV_PRIVATE_DATA_BASE_HANDLE_EXTENSION_NAME;
+
+  //=== VK_INTEL_device_info ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto INTELDeviceInfoSpecVersion   = VK_INTEL_DEVICE_INFO_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto INTELDeviceInfoExtensionName = VK_INTEL_DEVICE_INFO_EXTENSION_NAME;
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto VALVEBufferDeviceAddressAllocationAlignmentSpecVersion = VK_VALVE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto VALVEBufferDeviceAddressAllocationAlignmentExtensionName =
+    VK_VALVE_BUFFER_DEVICE_ADDRESS_ALLOCATION_ALIGNMENT_EXTENSION_NAME;
+
+  //=== VK_GOOGLE_hdr_smpte_st_209450_metadata ===
+  VULKAN_HPP_CONSTEXPR_INLINE auto GOOGLEHdrSmpteSt209450MetadataSpecVersion   = VK_GOOGLE_HDR_SMPTE_ST_209450_METADATA_SPEC_VERSION;
+  VULKAN_HPP_CONSTEXPR_INLINE auto GOOGLEHdrSmpteSt209450MetadataExtensionName = VK_GOOGLE_HDR_SMPTE_ST_209450_METADATA_EXTENSION_NAME;
 
 #if 20 <= VULKAN_HPP_CPP_VERSION
   template <typename Allocator, typename T>
@@ -11591,6 +11650,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<ShaderModuleCreateInfo, DataGraphPipelineCreateInfoARM>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<ComputePipelineCreateInfo, PipelineCreateInfoKHR>
   {
     enum
     {
@@ -11654,6 +11722,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<PipelineLayoutCreateInfo, IndirectCommandsLayoutCreateInfoEXT>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<GraphicsPipelineCreateInfo, PipelineCreateInfoKHR>
   {
     enum
     {
@@ -14827,6 +14904,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   template <>
+  struct StructExtends<ExecutionGraphPipelineCreateInfoAMDX, PipelineCreateInfoKHR>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
   struct StructExtends<PipelineShaderStageNodeCreateInfoAMDX, PipelineShaderStageCreateInfo>
   {
     enum
@@ -15114,6 +15200,15 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   //=== VK_KHR_ray_tracing_pipeline ===
+  template <>
+  struct StructExtends<RayTracingPipelineCreateInfoKHR, PipelineCreateInfoKHR>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   template <>
   struct StructExtends<PhysicalDeviceRayTracingPipelineFeaturesKHR, PhysicalDeviceFeatures2>
   {
@@ -20155,25 +20250,6 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
-  //=== VK_EXT_pipeline_library_group_handles ===
-  template <>
-  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT, PhysicalDeviceFeatures2>
-  {
-    enum
-    {
-      value = true
-    };
-  };
-
-  template <>
-  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesEXT, DeviceCreateInfo>
-  {
-    enum
-    {
-      value = true
-    };
-  };
-
   //=== VK_EXT_dynamic_rendering_unused_attachments ===
   template <>
   struct StructExtends<PhysicalDeviceDynamicRenderingUnusedAttachmentsFeaturesEXT, PhysicalDeviceFeatures2>
@@ -21695,7 +21771,16 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
   };
 
   template <>
-  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryRangeBarriersInfoKHR>
+  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryBarrier2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<MemoryBarrierAccessFlags3KHR, MemoryRangeBarrierKHR>
   {
     enum
     {
@@ -22793,6 +22878,25 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
+  //=== VK_KHR_pipeline_library_group_handles ===
+  template <>
+  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDevicePipelineLibraryGroupHandlesFeaturesKHR, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   //=== VK_KHR_maintenance11 ===
   template <>
   struct StructExtends<PhysicalDeviceMaintenance11FeaturesKHR, PhysicalDeviceFeatures2>
@@ -23031,6 +23135,25 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
+  //=== VK_ARM_cooperative_matrix_layouts ===
+  template <>
+  struct StructExtends<PhysicalDeviceCooperativeMatrixLayoutsFeaturesARM, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceCooperativeMatrixLayoutsFeaturesARM, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   //=== VK_EXT_shader_ocp_microscaling_types ===
   template <>
   struct StructExtends<PhysicalDeviceShaderOCPMicroscalingTypesFeaturesEXT, PhysicalDeviceFeatures2>
@@ -23153,6 +23276,53 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
     };
   };
 
+  //=== VK_EXT_vertex_address_binding_unrestricted ===
+  template <>
+  struct StructExtends<PhysicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceVertexAddressBindingUnrestrictedFeaturesEXT, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_KHR_maintenance12 ===
+  template <>
+  struct StructExtends<PhysicalDeviceMaintenance12FeaturesKHR, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceMaintenance12FeaturesKHR, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceMaintenance12PropertiesKHR, PhysicalDeviceProperties2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
   //=== VK_EXT_image_tiling_control ===
   template <>
   struct StructExtends<PhysicalDeviceImageTilingControlFeaturesEXT, PhysicalDeviceFeatures2>
@@ -23212,6 +23382,99 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
   template <>
   struct StructExtends<PhysicalDevicePrivateDataBaseHandleFeaturesNV, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_INTEL_device_info ===
+  template <>
+  struct StructExtends<PhysicalDeviceInfoPropertiesINTEL, PhysicalDeviceProperties2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_VALVE_buffer_device_address_allocation_alignment ===
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentFeaturesVALVE, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceBufferDeviceAddressAllocationAlignmentPropertiesVALVE, PhysicalDeviceProperties2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<BufferDeviceAddressAlignmentAllocateInfoVALVE, BufferCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<BufferDeviceAddressAlignmentAllocateInfoVALVE, MemoryAllocateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  //=== VK_GOOGLE_hdr_smpte_st_209450_metadata ===
+  template <>
+  struct StructExtends<PhysicalDeviceHdrSmpteSt209450FeaturesGOOGLE, PhysicalDeviceFeatures2>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<PhysicalDeviceHdrSmpteSt209450FeaturesGOOGLE, DeviceCreateInfo>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<HdrSmpteSt209450GOOGLE, HdrMetadataEXT>
+  {
+    enum
+    {
+      value = true
+    };
+  };
+
+  template <>
+  struct StructExtends<SurfaceCapabilitiesHdrSmpteSt209450GOOGLE, SurfaceCapabilities2KHR>
   {
     enum
     {
@@ -24741,6 +25004,12 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
       PFN_dummy vkCreateUbmSurfaceSEC_placeholder                        = 0;
       PFN_dummy vkGetPhysicalDeviceUbmPresentationSupportSEC_placeholder = 0;
 #endif /*VK_USE_PLATFORM_UBM_SEC*/
+
+      //=== VK_NV_internal_handle ===
+      PFN_vkGetPhysicalDeviceInternalHandleNV vkGetPhysicalDeviceInternalHandleNV = 0;
+      PFN_vkGetDeviceInternalHandleNV         vkGetDeviceInternalHandleNV         = 0;
+      PFN_vkGetQueueInternalHandleNV          vkGetQueueInternalHandleNV          = 0;
+      PFN_vkGetCommandBufferInternalHandleNV  vkGetCommandBufferInternalHandleNV  = 0;
 
       //=== VK_EXT_primitive_restart_index ===
       PFN_vkCmdSetPrimitiveRestartIndexEXT vkCmdSetPrimitiveRestartIndexEXT = 0;
@@ -26507,6 +26776,13 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
           PFN_vkGetPhysicalDeviceUbmPresentationSupportSEC( vkGetInstanceProcAddr( instance, "vkGetPhysicalDeviceUbmPresentationSupportSEC" ) );
 #endif /*VK_USE_PLATFORM_UBM_SEC*/
 
+        //=== VK_NV_internal_handle ===
+        vkGetPhysicalDeviceInternalHandleNV =
+          PFN_vkGetPhysicalDeviceInternalHandleNV( vkGetInstanceProcAddr( instance, "vkGetPhysicalDeviceInternalHandleNV" ) );
+        vkGetDeviceInternalHandleNV        = PFN_vkGetDeviceInternalHandleNV( vkGetInstanceProcAddr( instance, "vkGetDeviceInternalHandleNV" ) );
+        vkGetQueueInternalHandleNV         = PFN_vkGetQueueInternalHandleNV( vkGetInstanceProcAddr( instance, "vkGetQueueInternalHandleNV" ) );
+        vkGetCommandBufferInternalHandleNV = PFN_vkGetCommandBufferInternalHandleNV( vkGetInstanceProcAddr( instance, "vkGetCommandBufferInternalHandleNV" ) );
+
         //=== VK_EXT_primitive_restart_index ===
         vkCmdSetPrimitiveRestartIndexEXT = PFN_vkCmdSetPrimitiveRestartIndexEXT( vkGetInstanceProcAddr( instance, "vkCmdSetPrimitiveRestartIndexEXT" ) );
       }
@@ -27845,6 +28121,11 @@ VULKAN_HPP_EXPORT namespace VULKAN_HPP_NAMESPACE
 
         //=== VK_NV_compute_occupancy_priority ===
         vkCmdSetComputeOccupancyPriorityNV = PFN_vkCmdSetComputeOccupancyPriorityNV( vkGetDeviceProcAddr( device, "vkCmdSetComputeOccupancyPriorityNV" ) );
+
+        //=== VK_NV_internal_handle ===
+        vkGetDeviceInternalHandleNV        = PFN_vkGetDeviceInternalHandleNV( vkGetDeviceProcAddr( device, "vkGetDeviceInternalHandleNV" ) );
+        vkGetQueueInternalHandleNV         = PFN_vkGetQueueInternalHandleNV( vkGetDeviceProcAddr( device, "vkGetQueueInternalHandleNV" ) );
+        vkGetCommandBufferInternalHandleNV = PFN_vkGetCommandBufferInternalHandleNV( vkGetDeviceProcAddr( device, "vkGetCommandBufferInternalHandleNV" ) );
 
         //=== VK_EXT_primitive_restart_index ===
         vkCmdSetPrimitiveRestartIndexEXT = PFN_vkCmdSetPrimitiveRestartIndexEXT( vkGetDeviceProcAddr( device, "vkCmdSetPrimitiveRestartIndexEXT" ) );
